@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Frontend Mentor | Kanban task management web app</title>
+</head>
+
+<body>
+    <div class="wrapper dark">
+        <header>
+            <span class="logo">
+                <img src="assets/img/logo-mobile.svg" alt="Logo">
+            </span>
+            <h2>Platform Launch</h2>
+            <span class="show-boards">
+                <img src="assets/img/icon-chevron-down.svg" alt="arrow pointing down">
+            </span>
+            <div class="boards-dropdown-container">
+                <div class="boards-dropdown">
+                    <h5>All Boards (<span>3</span>)</h5>
+                    <ul>
+                        <li class="active">
+                            <span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 2.889A2.889 2.889 0 0 1 2.889 0H13.11A2.889 2.889 0 0 1 16 2.889V13.11A2.888 2.888 0 0 1 13.111 16H2.89A2.889 2.889 0 0 1 0 13.111V2.89Zm1.333 5.555v4.667c0 .859.697 1.556 1.556 1.556h6.889V8.444H1.333Zm8.445-1.333V1.333h-6.89A1.556 1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0 5.778H11.11v3.11h2a1.556 1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z" fill="#828fa3" />
+                                </svg>
+                            </span>
+                            Platform Launch</li>
+                        <li>
+                            <span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 2.889A2.889 2.889 0 0 1 2.889 0H13.11A2.889 2.889 0 0 1 16 2.889V13.11A2.888 2.888 0 0 1 13.111 16H2.89A2.889 2.889 0 0 1 0 13.111V2.89Zm1.333 5.555v4.667c0 .859.697 1.556 1.556 1.556h6.889V8.444H1.333Zm8.445-1.333V1.333h-6.89A1.556 1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0 5.778H11.11v3.11h2a1.556 1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z" fill="#828fa3" />
+                                </svg>
+                            </span>
+                            Marketing Plan</li>
+                        <li>
+                            <span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 2.889A2.889 2.889 0 0 1 2.889 0H13.11A2.889 2.889 0 0 1 16 2.889V13.11A2.888 2.888 0 0 1 13.111 16H2.89A2.889 2.889 0 0 1 0 13.111V2.89Zm1.333 5.555v4.667c0 .859.697 1.556 1.556 1.556h6.889V8.444H1.333Zm8.445-1.333V1.333h-6.89A1.556 1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0 5.778H11.11v3.11h2a1.556 1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z" fill="#828fa3" />
+                                </svg>
+                            </span>
+                            Roadmap</li>
+                        <li class="create-new-board">
+                            <span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 2.889A2.889 2.889 0 0 1 2.889 0H13.11A2.889 2.889 0 0 1 16 2.889V13.11A2.888 2.888 0 0 1 13.111 16H2.89A2.889 2.889 0 0 1 0 13.111V2.89Zm1.333 5.555v4.667c0 .859.697 1.556 1.556 1.556h6.889V8.444H1.333Zm8.445-1.333V1.333h-6.89A1.556 1.556 0 0 0 1.334 2.89V7.11h8.445Zm4.889-1.333H11.11v4.444h3.556V5.778Zm0 5.778H11.11v3.11h2a1.556 1.556 0 0 0 1.556-1.555v-1.555Zm0-7.112V2.89a1.555 1.555 0 0 0-1.556-1.556h-2v3.111h3.556Z" fill="#828fa3" />
+                                </svg>
+                            </span>
+                            + Create New Board</li>
+                    </ul>
+                    <div class="theme-switcher-container">
+                        <div class="theme-switcher">
+                            <span><img src="assets/img/icon-light-theme.svg" alt=""></span>
+                            <span class="switch"><span></span></span>
+                            <span><img src="assets/img/icon-dark-theme.svg" alt=""></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="add-task button-primary inactive">
+                <img src="assets/img/icon-add-task-mobile.svg" alt="Add new task">
+            </button>
+            <span class="actions">
+                <img src="assets/img/icon-vertical-ellipsis.svg" alt="">
+            </span>
+        </header>
+        <main>
+            <div class="empty-board">
+                <p>This board is empty. Create a new column to get started.</p>
+                <button class="button-primary button-empty">
+                    <span>+ Add New Column</span>
+                </button>
+            </div>
+            <div class="board-container">
+                <div class="status-todo">
+                    <h5><span class="status-color"></span>Todo<span> (4)</span></h5>
+                    <div class="tasks-container">
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow ksdfkjnadskfn kandfknadf </h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-todo">
+                    <h5><span class="status-color"></span>Todo<span> (4)</span></h5>
+                    <div class="tasks-container">
+                        <div class="task">
+                            <h4>Build UI for onboarding flow ksdfkjnadskfn kandfknadf </h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow</h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                        <div class="task">
+                            <h4>Build UI for onboarding flow ksdfkjnadskfn kandfknadf </h4>
+                            <p class="subtasks"><span>0</span> of <span>3</span> substasks</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <form class="task-info-container">
+                <div class="task-info">
+                    <div class="heading">
+                        <h3>Research pricing points of various competitors and trial different business models</h3>
+                        <span class="actions">
+                            <img src="assets/img/icon-vertical-ellipsis.svg" alt="">
+                        </span>
+                    </div>
+                    <div class="task-description">
+                        <p>We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.</p>
+                    </div>
+                    <div class="subtasks-container">
+                        <p class="subtasks-num input-heading">Subtasks (<span>2</span> of <span>3</span>)</p>
+                        <div class="subtask checked">
+                            <span><img src="assets/img/icon-check.svg" alt=""></span>
+                            <p>Research competitor</p>
+                        </div>
+                        <div class="subtask">
+                            <span></span>
+                            <p>Research competitor pricing and business models</p>
+                        </div>
+                        <div class="subtask">
+                            <span></span>
+                            <p>Research competitor pricing and business models</p>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <p class="input-heading">Current Status</p>
+                        <div class="status-input">
+                            <input type="text" value="Todo">
+                            <span><img src="assets/img/icon-chevron-down.svg" alt=""></span>
+                        </div>
+                        <div class="status-dropdown">
+                            <p>Todo</p>
+                            <p>Doing</p>
+                            <p>Done</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form class="add-new-task-container">
+                <div class="add-task-info">
+                    <div class="heading">
+                        <h3>Add New Task</h3>
+                    </div>
+                    <div class="add-title">
+                        <p class="input-heading">Title</p>
+                        <input type="text" placeholder="e.g. Take a coffee brake">
+                    </div>
+                    <div class="add-description">
+                        <p class="input-heading">Description</p>
+                        <textarea placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."></textarea>
+                    </div>
+                    <div class="add-subtasks">
+                        <p class="input-heading">Subtasks</p>
+                        <div>
+                            <input type="text" placeholder="e.g. Make coffee">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="e.g. Drink coffee & smile">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <button class="button-secondary">+ Add New Subtask</button>
+                    </div>
+                    <div class="add-status">
+                        <p class="input-heading">Status</p>
+                        <div class="status-input">
+                            <input type="text" value="Todo">
+                            <span><img src="assets/img/icon-chevron-down.svg" alt=""></span>
+                        </div>
+                        <div class="status-dropdown">
+                            <p>Todo</p>
+                            <p>Doing</p>
+                            <p>Done</p>
+                        </div>
+                    </div>
+                    <button class="button-primary button-submit">Create Task</button>
+                </div>
+            </form>
+            <form class="edit-task-container">
+                <div class="edit-task-info">
+                    <div class="heading">
+                        <h3>Edit Task</h3>
+                    </div>
+                    <div class="edit-title">
+                        <p class="input-heading">Title</p>
+                        <input type="text" value="Take a coffee brake">
+                    </div>
+                    <div class="edit-description">
+                        <p class="input-heading">Description</p>
+                        <textarea placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."></textarea>
+                    </div>
+                    <div class="edit-subtasks">
+                        <p class="input-heading">Subtasks</p>
+                        <div>
+                            <input type="text" value="Make coffee">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <div>
+                            <input type="text" value="Drink coffee & smile">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <button class="button-secondary">+ Add New Subtask</button>
+                    </div>
+                    <div class="edit-status">
+                        <p class="input-heading">Status</p>
+                        <div class="status-input">
+                            <input type="text" value="Todo">
+                            <span><img src="assets/img/icon-chevron-down.svg" alt=""></span>
+                        </div>
+                        <div class="status-dropdown">
+                            <p>Todo</p>
+                            <p>Doing</p>
+                            <p>Done</p>
+                        </div>
+                    </div>
+                    <button class="button-primary button-submit">Create Task</button>
+                </div>
+            </form>
+            <form class="add-new-board-container">
+                <div class="add-board-info">
+                    <div class="heading">
+                        <h3>Add New Board</h3>
+                    </div>
+                    <div class="add-board-name">
+                        <p class="input-heading">Board Name</p>
+                        <input type="text" placeholder="e.g. Take a coffee brake">
+                    </div>
+                    <div class="add-board-columns">
+                        <p class="input-heading">Board Columns</p>
+                        <div>
+                            <input type="text" value="Make coffee">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <div>
+                            <input type="text" value="Drink coffee & smile">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <button class="button-secondary">+ Add New Column</button>
+                    </div>
+                    <button class="button-primary button-submit">Create New Board</button>
+                </div>
+            </form>
+            <form class="edit-board-container">
+                <div class="edit-board-info">
+                    <div class="heading">
+                        <h3>Edit Board</h3>
+                    </div>
+                    <div class="edit-board-name">
+                        <p class="input-heading">Board Name</p>
+                        <input type="text" placeholder="e.g. Take a coffee brake">
+                    </div>
+                    <div class="edit-board-columns">
+                        <p class="input-heading">Board Columns</p>
+                        <div>
+                            <input type="text" value="Make coffee">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <div>
+                            <input type="text" value="Drink coffee & smile">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <div>
+                            <input type="text" value="Drink coffee & smile">
+                            <span><img src="assets/img/icon-cross.svg" alt=""></span>
+                        </div>
+                        <button class="button-secondary">+ Add New Column</button>
+                    </div>
+                    <button class="button-primary button-submit">Save Changes</button>
+                </div>
+            </form>
+            <form class="delete-board-container">
+                <div class="delete-board-info">
+                    <div class="heading">
+                        <h3>Delete This Board?</h3>
+                    </div>
+                    <div class="warning-message">
+                        <p>Are you sure you want to delete the ‘Platform Launch’ board? This action will remove all columns and tasks and cannot be reversed.</p>
+                    </div>
+                    <button class="button-delete button-submit">Delete</button>
+                    <button class="secondary-primary">Cancel</button>
+                </div>
+            </form>
+            <form class="delete-task-container">
+                <div class="delete-task-info">
+                    <div class="heading">
+                        <h3>Delete This task?</h3>
+                    </div>
+                    <div class="warning-message">
+                        <p>Are you sure you want to delete the ‘Build settings UI’ task and its subtasks? This action cannot be reversed.</p>
+                    </div>
+                    <button class="button-delete button-submit">Delete</button>
+                    <button class="secondary-primary">Cancel</button>
+                </div>
+            </form>
+
+        </main>
+
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

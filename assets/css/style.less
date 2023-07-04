@@ -1,0 +1,500 @@
+@VeryDarkGrey: #20212C;
+@DarkGrey: #2B2C37;
+@MainPurple: #635FC7;
+@MediumGrey: #828FA3;
+@Red: #EA5555;
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+p {
+    cursor: default;
+}
+
+h2 {
+    display: inline;
+    margin-left: 15px;
+    color: #fff;
+    margin-right: 8px;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.68px;
+    color: #fff;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15.12px;
+    letter-spacing: 2.4px;
+    color: @MediumGrey;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+
+}
+
+input,
+textarea {
+    border-radius: 4px;
+    border: 1px solid rgba(130, 143, 163, 0.25);
+    background-color: @DarkGrey;
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 23px;
+    padding: 8px 16px 9px;
+    width: 100%;
+}
+
+textarea {
+    height: 112px;
+    resize: none;
+}
+
+button {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 23px;
+    padding: 9px;
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+body {
+    background-color: @VeryDarkGrey;
+}
+
+header {
+    background-color: @DarkGrey;
+    height: 32px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    .add-task {
+        height: 32px;
+        width: 48px;
+        margin-left: auto;
+        line-height: 16px;
+        padding: 10px 17px;
+    }
+}
+
+.button-empty {
+    border-radius: 24px;
+  //  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 13px 17px;
+    width: auto;
+}
+
+button.inactive {
+    opacity: 0.25;
+}
+
+.button-primary {
+    background-color: @MainPurple;
+    color: #fff;
+}
+
+.button-secondary {
+    background-color: #fff;
+    color: @MainPurple;
+}
+
+.button-submit {
+    margin-top: 24px;
+}
+
+.button-delete {
+    color: #fff;
+    background-color: @Red;
+    margin-bottom: 16px;
+}
+
+.show-boards {
+    margin-bottom: 4px;
+}
+
+.actions {
+    margin-left: 14px;
+
+
+    img {
+        height: 16px;
+    }
+}
+
+.empty-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+
+    p {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 23px;
+        text-align: center;
+        color: @MediumGrey;
+        width: 343px;
+        margin-bottom: 30px;
+    }
+}
+
+.board-container {
+    padding-top: 100px;
+    padding-left: 16px;
+    display: flex;
+}
+
+.status-color {
+    height: 15px;
+    width: 15px;
+    background-color: #49C4E5;
+    display: inline-block;
+    border-radius: 100%;
+    margin-right: 12px;
+    vertical-align: top;
+
+}
+
+.task {
+    background-color: @DarkGrey;
+    width: 280px;
+    padding: 23px 16px;
+    margin-bottom: 20px;
+    margin-right: 24px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
+    box-sizing: border-box;
+
+}
+
+.subtasks {
+    color: @MediumGrey;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15.12px;
+}
+
+.task-info-container,
+.add-new-task-container,
+.edit-task-container,
+.add-new-board-container,
+.edit-board-container,
+.delete-board-container,
+.delete-task-container,
+.boards-dropdown-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boards-dropdown-container {
+    display: none;
+}
+
+.task-info-container,
+.add-new-task-container,
+.edit-task-container,
+.add-new-board-container,
+.edit-board-container,
+.delete-board-container,
+.delete-task-container,
+//.board-container
+{
+    display: none;
+}
+
+.task-info,
+.add-task-info,
+.edit-task-info,
+.add-board-info,
+.edit-board-info,
+.delete-board-info,
+.delete-task-info {
+    background-color: @DarkGrey;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 16px;
+
+}
+
+
+.heading {
+    position: relative;
+    display: flex;
+    padding-right: 24px;
+    align-items: center;
+
+    .actions {
+        position: absolute;
+        right: 0;
+
+        img {
+            height: 20px;
+        }
+    }
+}
+
+.delete-board-container,
+.delete-task-container {
+    h3 {
+        color: @Red;
+    }
+}
+
+.task-description,
+.warning-message {
+    p {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 23px;
+        color: @MediumGrey;
+        margin-top: 24px;
+    }
+
+}
+
+.input-heading {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15.12px;
+    color: #fff;
+    margin-bottom: 8px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.subtasks-num {
+    margin-bottom: 16px;
+}
+
+.subtask {
+    background-color: @VeryDarkGrey;
+    border-radius: 4px;
+    margin-top: 8px;
+    padding: 13px 8px 16px 44px;
+    position: relative;
+
+    span {
+        background-color: #fff;
+        height: 14px;
+        width: 14px;
+        border-radius: 2px;
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(130, 143, 163, 0.2489);
+
+        img {
+            height: 8px;
+        }
+
+    }
+
+    p {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 15.12px;
+    }
+}
+
+.checked {
+    span {
+        background-color: @MainPurple;
+    }
+
+    p {
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+}
+
+.status,
+.add-status,
+.edit-status {
+    margin-top: 24px;
+
+}
+
+.status-input {
+    display: flex;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 18px;
+        right: 15px;
+    }
+}
+
+.status-dropdown {
+    display: none;
+}
+
+.add-title,
+.add-description,
+.add-subtasks,
+.edit-title,
+.edit-description,
+.edit-subtasks,
+.add-board-name,
+.add-board-columns,
+.edit-board-name,
+.edit-board-columns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-subtasks,
+.edit-subtasks,
+.add-board-columns,
+.edit-board-columns {
+    div {
+        width: 100%;
+        display: flex;
+        margin-bottom: 12px;
+    }
+
+    span {
+        padding-left: 18px;
+        padding-top: 12px;
+    }
+
+    button {}
+}
+
+.boards-dropdown {
+    background-color: @DarkGrey;
+    border-radius: 8px;
+    box-shadow: 4px 4px 20px rgba(54, 78, 126, 0.25);
+    margin: 80px auto;
+    width: 264px;
+
+    h5 {
+        padding-left: 24px;
+        padding-top: 16px;
+    }
+}
+
+ul {
+    margin-top: 19px;
+    list-style: none;
+    padding-right: 24px;
+}
+
+li {
+    color: @MediumGrey;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18.9px;
+    padding: 14px 24px;
+
+    span {
+        margin-right: 12px;
+        vertical-align: middle;
+
+
+    }
+}
+
+.active {
+    background-color: @MainPurple;
+    color: #fff;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+
+    path {
+        fill: #fff;
+    }
+
+}
+
+.create-new-board {
+    color: @MainPurple;
+
+    path {
+        fill: @MainPurple;
+    }
+}
+
+.theme-switcher-container {
+    padding: 15px;
+
+    .theme-switcher {
+        background-color: @VeryDarkGrey;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+}
+
+.switch {
+    border-radius: 12px;
+    background-color: @MainPurple;
+    width: 40px;
+    height: 20px;
+    display: block;
+    margin: 0 20px;
+
+    span {
+        display: block;
+        border-radius: 100%;
+        background-color: #fff;
+        height: 14px;
+        width: 14px;
+        position: relative;
+        top: 3px;
+        left: 23px;
+    }
+}
