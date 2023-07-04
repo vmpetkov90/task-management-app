@@ -90,6 +90,9 @@ header .add-task {
   line-height: 16px;
   padding: 10px 17px;
 }
+.logo img {
+  vertical-align: bottom;
+}
 .button-empty {
   border-radius: 24px;
   font-size: 13px;
@@ -193,7 +196,7 @@ button.inactive {
   justify-content: center;
 }
 .boards-dropdown-container {
-  display: none;
+  display: block;
 }
 .task-info-container,
 .add-new-task-container,
@@ -201,7 +204,8 @@ button.inactive {
 .add-new-board-container,
 .edit-board-container,
 .delete-board-container,
-.delete-task-container {
+.delete-task-container,
+.boards-dropdown-container {
   display: none;
 }
 .task-info,
@@ -404,4 +408,47 @@ li span {
   position: relative;
   top: 3px;
   left: 23px;
+}
+.light {
+  background-color: #f4f7fd;
+}
+.light header {
+  background-color: #fff;
+}
+.light h2,
+.light h3,
+.light h4 {
+  color: #000;
+}
+.light .task,
+.light .task-info,
+.light .add-task-info,
+.light .edit-task-info,
+.light .add-board-info,
+.light .edit-board-info,
+.light .delete-board-info,
+.light .delete-task-info,
+.light .boards-dropdown,
+.light input,
+.light textarea {
+  background-color: #fff;
+}
+.light .subtask {
+  background-color: #f4f7fd;
+}
+.light .subtask p {
+  color: #000;
+}
+.light input {
+  color: #000;
+}
+.light .subtasks-num,
+.light .input-heading {
+  color: #828fa3;
+}
+.light .button-secondary {
+  background-color: rgba(99, 95, 199, 0.1);
+}
+.light .theme-switcher {
+  background-color: #f4f7fd;
 }

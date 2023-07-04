@@ -3,6 +3,7 @@
 @MainPurple: #635FC7;
 @MediumGrey: #828FA3;
 @Red: #EA5555;
+@LightGrey: #F4F7FD;
 
 
 
@@ -111,9 +112,15 @@ header {
     }
 }
 
+.logo {
+    img {
+        vertical-align: bottom;
+    }
+}
+
 .button-empty {
     border-radius: 24px;
-  //  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    //  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 13px;
     font-weight: bold;
     padding: 13px 17px;
@@ -233,9 +240,10 @@ button.inactive {
     justify-content: center;
 }
 
-.boards-dropdown-container {
-    display: none;
+.boards-dropdown-container{
+    display: block;
 }
+
 
 .task-info-container,
 .add-new-task-container,
@@ -244,8 +252,9 @@ button.inactive {
 .edit-board-container,
 .delete-board-container,
 .delete-task-container,
-//.board-container
-{
+//.board-container,
+.boards-dropdown-container,
+    {
     display: none;
 }
 
@@ -497,4 +506,59 @@ li {
         top: 3px;
         left: 23px;
     }
+}
+
+.light {
+    background-color: @LightGrey;
+
+    header {
+        background-color: #fff;
+    }
+
+    h2,
+    h3,
+    h4 {
+        color: #000;
+    }
+
+
+    .task,
+    .task-info,
+    .add-task-info,
+    .edit-task-info,
+    .add-board-info,
+    .edit-board-info,
+    .delete-board-info,
+    .delete-task-info,
+    .boards-dropdown,
+    input,
+    textarea{
+        background-color: #fff;
+    }
+
+    .subtask {
+        background-color: @LightGrey;
+
+        p {
+            color: #000;
+        }
+    }
+
+    input {
+        color: #000;
+    }
+
+    .subtasks-num,
+    .input-heading {
+        color: @MediumGrey;
+    }
+    .button-secondary{
+        background-color: rgba(99,95,199,0.1);
+    }
+    
+    .theme-switcher{
+        background-color: @LightGrey;
+    }
+
+
 }
