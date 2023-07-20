@@ -14,11 +14,13 @@
     <title>Frontend Mentor | Kanban task management web app</title>
 </head>
 
-<body class="light">
+<body class="">
     <div class="wrapper">
-        <header>
+        <header class="sidebar-show">
             <span class="logo">
-                <img src="assets/img/logo-mobile.svg" alt="Logo">
+                <img class="logo-mobile" src="assets/img/logo-mobile.svg" alt="Logo">
+                <img class="logo-light" src="assets/img/logo-light.svg" alt="Light logo">
+                <img class="logo-dark" src="assets/img/logo-dark.svg" alt="Dark logo">
             </span>
             <h2>Platform Launch</h2>
             <span class="show-boards">
@@ -64,17 +66,25 @@
                             <span><img src="assets/img/icon-dark-theme.svg" alt=""></span>
                         </div>
                     </div>
+                    <div class="toggle-sidebar-container">
+                        <div class="toggle-sidebar">
+                            <img src="assets/img/icon-hide-sidebar.svg" alt="Hide sidebar icon">
+                            <span>Hide Sidebar</span>
+                            <span><img src="assets/img/icon-show-sidebar.svg" alt="Hide sidebar icon"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="add-task button-primary inactive">
                 <img src="assets/img/icon-add-task-mobile.svg" alt="Add new task">
+                <span>+ Add New Task</span>
             </button>
             <span class="actions">
                 <img src="assets/img/icon-vertical-ellipsis.svg" alt="">
             </span>
         </header>
-        <main>
-            <div class="empty-board">
+        <main class="sidebar-show">
+            <div class="empty-board sidebar-show">
                 <p>This board is empty. Create a new column to get started.</p>
                 <button class="button-primary button-empty">
                     <span>+ Add New Column</span>
@@ -309,8 +319,10 @@
                     <div class="warning-message">
                         <p>Are you sure you want to delete the ‘Platform Launch’ board? This action will remove all columns and tasks and cannot be reversed.</p>
                     </div>
-                    <button class="button-delete button-submit">Delete</button>
-                    <button class="secondary-primary">Cancel</button>
+                    <div class="buttons-container">
+                        <button class="button-delete">Delete</button>
+                        <button class="button-secondary">Cancel</button>
+                    </div>
                 </div>
             </form>
             <form class="delete-task-container">
@@ -321,8 +333,10 @@
                     <div class="warning-message">
                         <p>Are you sure you want to delete the ‘Build settings UI’ task and its subtasks? This action cannot be reversed.</p>
                     </div>
-                    <button class="button-delete button-submit">Delete</button>
-                    <button class="secondary-primary">Cancel</button>
+                    <div class="buttons-container">
+                        <button class="button-delete">Delete</button>
+                        <button class="button-secondary">Cancel</button>
+                    </div>
                 </div>
             </form>
 

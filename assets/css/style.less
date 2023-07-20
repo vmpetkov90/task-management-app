@@ -4,6 +4,8 @@
 @MediumGrey: #828FA3;
 @Red: #EA5555;
 @LightGrey: #F4F7FD;
+@LinesDark: #3E3F4E;
+@LinesLight: #E4EBFA;
 
 
 
@@ -78,6 +80,19 @@ textarea {
     resize: none;
 }
 
+::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
 button {
     font-weight: 700;
     font-size: 13px;
@@ -91,30 +106,48 @@ button {
 
 body {
     background-color: @VeryDarkGrey;
+    height: 100vh;
+}
+
+.wrapper {
+    height: 100%;
 }
 
 header {
     background-color: @DarkGrey;
-    height: 32px;
-    padding: 16px;
+    height: 64px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     position: fixed;
     left: 0;
     right: 0;
+}
 
-    .add-task {
-        height: 32px;
-        width: 48px;
-        margin-left: auto;
-        line-height: 16px;
-        padding: 10px 17px;
-    }
+main {
+    height: 100%;
 }
 
 .logo {
     img {
         vertical-align: bottom;
+    }
+}
+
+.logo-dark,
+.logo-light {
+    display: none;
+}
+
+.add-task {
+    height: 32px;
+    width: 48px;
+    margin-left: auto;
+    line-height: 16px;
+    padding: 10px 17px;
+
+    span {
+        display: none;
     }
 }
 
@@ -149,6 +182,7 @@ button.inactive {
     color: #fff;
     background-color: @Red;
     margin-bottom: 16px;
+    margin-top: 24px;
 }
 
 .show-boards {
@@ -156,7 +190,7 @@ button.inactive {
 }
 
 .actions {
-    margin-left: 14px;
+    margin-left: 16px;
 
 
     img {
@@ -236,11 +270,11 @@ button.inactive {
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.boards-dropdown-container{
+.boards-dropdown-container {
     display: block;
 }
 
@@ -251,8 +285,8 @@ button.inactive {
 .add-new-board-container,
 .edit-board-container,
 .delete-board-container,
-.delete-task-container,
-//.board-container,
+//.delete-task-container,
+.board-container,
 .boards-dropdown-container,
     {
     display: none;
@@ -532,7 +566,7 @@ li {
     .delete-task-info,
     .boards-dropdown,
     input,
-    textarea{
+    textarea {
         background-color: #fff;
     }
 
@@ -552,13 +586,238 @@ li {
     .input-heading {
         color: @MediumGrey;
     }
-    .button-secondary{
-        background-color: rgba(99,95,199,0.1);
+
+    .button-secondary {
+        background-color: rgba(99, 95, 199, 0.1);
     }
-    
-    .theme-switcher{
+
+    .theme-switcher {
         background-color: @LightGrey;
     }
 
+    ::placeholder {
+        color: rgba(0, 0, 0, 0.25);
+        opacity: 1;
+    }
 
+    :-ms-input-placeholder {
+        color: rgba(0, 0, 0, 0.25);
+    }
+
+    ::-ms-input-placeholder {
+        color: rgba(0, 0, 0, 0.25);
+    }
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    main.sidebar-show {
+        padding-left: 261px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-left: 24px;
+        margin-top: 2px;
+    }
+
+    header {
+        height: 80px;
+        padding: 0 24px;
+    }
+
+    .logo-mobile {
+        display: none;
+    }
+
+    .logo-light {
+        display: block;
+    }
+
+    .logo {
+        border-right: 1px solid @LinesDark;
+        height: 100%;
+        width: 176px;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 25.5px;
+        }
+    }
+
+    .show-boards {
+        display: none;
+    }
+
+    .actions {
+        margin-left: 24px;
+
+        img {
+            height: 20px;
+        }
+    }
+
+    .boards-dropdown {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+
+        h5 {
+            padding-top: 32px;
+            margin: 0;
+        }
+    }
+
+    .theme-switcher-container {
+        margin-top: auto;
+    }
+
+    .add-task {
+        width: 164px;
+        height: 48px;
+        border-radius: 24px;
+
+        img {
+            display: none;
+        }
+
+        span {
+            display: block;
+            font-size: 15px;
+            font-weight: normal;
+        }
+    }
+
+    .boards-dropdown-container {
+        display: block;
+        margin-left: -261px;
+        width: 260px;
+        border-right: 1px solid @LinesDark;
+        background-color: transparent;
+    }
+
+    header.sidebar-show {
+
+        .logo {
+            width: 236px;
+        }
+
+        .boards-dropdown-container {
+            margin-left: 0;
+        }
+
+
+
+
+    }
+
+    .empty-board.sidebar-show {
+        margin-left: 130px;
+    }
+
+    .toggle-sidebar-container {
+        margin-bottom: 110px;
+        padding: 15px;
+
+        .toggle-sidebar {
+            padding: 0 15px;
+
+            img {
+                position: relative;
+                top: 2px;
+            }
+
+            span {
+                margin-left: 7px;
+                color: @MediumGrey;
+            }
+
+            span:nth-of-type(2) {
+                width: 56px;
+                height: 48px;
+                position: absolute;
+                right: -56px;
+                background-color: @MainPurple;
+                border-bottom-right-radius: 100px;
+                border-top-right-radius: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: 30px;
+                img{
+                    top: 0;
+                    left: -2px;
+                }
+            }
+        }
+    }
+
+    .task-info,
+    .add-task-info,
+    .edit-task-info,
+    .add-board-info,
+    .edit-board-info,
+    .delete-board-info,
+    .delete-task-info {
+        width: 480px;
+        box-sizing: border-box;
+        padding: 32px;
+    }
+
+    .buttons-container {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        button {
+            width: 200px;
+        }
+    }
+
+    .button-delete {
+        margin-bottom: 10px;
+    }
+
+    .empty-board {
+        p {
+            width: 370px;
+        }
+
+    }
+
+    .button-empty {
+        font-size: 15px;
+    }
+
+    .light {
+        
+        .logo{
+            border-right: 1px solid @LinesLight; 
+        }
+
+        .logo-light {
+            display: none;
+        }
+
+        .logo-dark {
+            display: block;
+        }
+
+        .boards-dropdown-container {
+            border-right: 1px solid @LinesLight;
+        }
+    }
+
+
+}
+
+@media only screen and (min-width: 1440px) {
+    
 }
