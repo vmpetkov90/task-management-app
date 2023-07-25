@@ -33,7 +33,9 @@ h4 {
   font-weight: 700;
   line-height: 19px;
   color: #fff;
+  cursor: pointer;
   margin-bottom: 8px;
+  transition: 0.1s;
 }
 h5 {
   font-weight: 700;
@@ -55,6 +57,8 @@ textarea {
   line-height: 23px;
   padding: 8px 16px 9px;
   width: 100%;
+  outline: inherit;
+  transition: 0.1s;
 }
 textarea {
   height: 112px;
@@ -79,6 +83,7 @@ button {
   border: 0;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.1s;
 }
 body {
   background-color: #20212c;
@@ -96,6 +101,7 @@ header {
   position: fixed;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 main {
   height: 100%;
@@ -126,6 +132,7 @@ main {
 }
 button.inactive {
   opacity: 0.25;
+  pointer-events: none;
 }
 .button-primary {
   background-color: #635fc7;
@@ -143,9 +150,11 @@ button.inactive {
   background-color: #ea5555;
   margin-bottom: 16px;
   margin-top: 24px;
+  transition: 0.1s;
 }
 .show-boards {
   margin-bottom: 4px;
+  cursor: pointer;
 }
 .actions {
   margin-left: 16px;
@@ -173,9 +182,13 @@ button.inactive {
   margin-bottom: 30px;
 }
 .board-container {
-  padding-top: 100px;
-  padding-left: 16px;
+  padding: 16px;
+  padding-top: 85px;
   display: flex;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
 }
 .status-color {
   height: 15px;
@@ -195,12 +208,34 @@ button.inactive {
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
   box-sizing: border-box;
+  cursor: pointer;
 }
 .subtasks {
   color: #828fa3;
   font-weight: 700;
   font-size: 12px;
   line-height: 15.12px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.add-new-column {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-radius: 6px;
+  margin-top: 39px;
+  position: sticky;
+  top: 0;
+  cursor: pointer;
+}
+.add-new-column p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #828fa3;
+  width: 280px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  transition: 0.1s;
 }
 .task-info-container,
 .add-new-task-container,
@@ -215,10 +250,11 @@ button.inactive {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .boards-dropdown-container {
   display: block;
@@ -229,7 +265,7 @@ button.inactive {
 .add-new-board-container,
 .edit-board-container,
 .delete-board-container,
-.board-container,
+.delete-task-container,
 .boards-dropdown-container {
   display: none;
 }
@@ -257,6 +293,10 @@ button.inactive {
 }
 .heading .actions img {
   height: 20px;
+}
+.heading .actions-dropdown {
+  top: 60px;
+  right: -100px;
 }
 .delete-board-container h3,
 .delete-task-container h3 {
@@ -288,6 +328,7 @@ button.inactive {
   margin-top: 8px;
   padding: 13px 8px 16px 44px;
   position: relative;
+  cursor: pointer;
 }
 .subtask span {
   background-color: #fff;
@@ -311,6 +352,7 @@ button.inactive {
   font-size: 12px;
   font-weight: 700;
   line-height: 15.12px;
+  cursor: pointer;
 }
 .checked span {
   background-color: #635fc7;
@@ -322,6 +364,7 @@ button.inactive {
 .status,
 .add-status,
 .edit-status {
+  position: relative;
   margin-top: 24px;
 }
 .status-input {
@@ -332,9 +375,31 @@ button.inactive {
   position: absolute;
   top: 18px;
   right: 15px;
+  pointer-events: none;
+}
+.status-input input {
+  cursor: pointer;
 }
 .status-dropdown {
+  position: absolute;
+  background-color: #20212c;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 5px;
+  padding: 16px;
+  padding-bottom: 0;
+  box-sizing: border-box;
   display: none;
+}
+.status-dropdown ul {
+  list-style: none;
+}
+.status-dropdown li {
+  color: #828fa3;
+  font-size: 13px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: 0.1s;
 }
 .add-title,
 .add-description,
@@ -363,6 +428,13 @@ button.inactive {
 .edit-board-columns span {
   padding-left: 18px;
   padding-top: 12px;
+  cursor: pointer;
+}
+.add-subtasks span g,
+.edit-subtasks span g,
+.add-board-columns span g,
+.edit-board-columns span g {
+  transition: 0.1s;
 }
 .boards-dropdown {
   background-color: #2b2c37;
@@ -375,35 +447,40 @@ button.inactive {
   padding-left: 24px;
   padding-top: 16px;
 }
-ul {
+.boards-dropdown ul {
   margin-top: 19px;
   list-style: none;
   padding-right: 24px;
 }
-li {
+.boards-dropdown li {
   color: #828fa3;
   font-size: 15px;
   font-weight: 700;
   line-height: 18.9px;
   padding: 14px 24px;
+  cursor: pointer;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  transition: 0.1s;
 }
-li span {
+.boards-dropdown li span {
   margin-right: 12px;
   vertical-align: middle;
 }
-.active {
+path {
+  transition: 0.1s;
+}
+li.active {
   background-color: #635fc7;
   color: #fff;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
 }
-.active path {
+li.active path {
   fill: #fff;
 }
-.create-new-board {
+li.create-new-board {
   color: #635fc7;
 }
-.create-new-board path {
+li.create-new-board path {
   fill: #635fc7;
 }
 .theme-switcher-container {
@@ -423,6 +500,8 @@ li span {
   height: 20px;
   display: block;
   margin: 0 20px;
+  cursor: pointer;
+  transition: 0.1s;
 }
 .switch span {
   display: block;
@@ -433,6 +512,31 @@ li span {
   position: relative;
   top: 3px;
   left: 23px;
+  transition: 0.1s;
+}
+.actions-dropdown {
+  position: absolute;
+  width: 192px;
+  background-color: #20212c;
+  border-radius: 8px;
+  right: 25px;
+  top: 75px;
+  display: none;
+}
+.actions-dropdown ul {
+  list-style: none;
+  padding: 16px;
+}
+.actions-dropdown li {
+  font-size: 13px;
+  font-weight: 500;
+  color: #828fa3;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.actions-dropdown li:nth-of-type(2) {
+  color: #ea5555;
+  margin-top: 30px;
 }
 .light {
   background-color: #f4f7fd;
@@ -487,6 +591,18 @@ li span {
 .light ::-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.25);
 }
+.light .add-new-column {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.light .actions-dropdown {
+  background-color: #fff;
+}
+.light .status-dropdown {
+  background-color: #fff;
+}
+.light .switch span {
+  left: 3px;
+}
 @media only screen and (min-width: 768px) {
   main.sidebar-show {
     padding-left: 261px;
@@ -499,6 +615,7 @@ li span {
   header {
     height: 80px;
     padding: 0 24px;
+    border-bottom: 1px solid #3e3f4e;
   }
   .logo-mobile {
     display: none;
@@ -521,6 +638,7 @@ li span {
   }
   .actions {
     margin-left: 24px;
+    cursor: pointer;
   }
   .actions img {
     height: 20px;
@@ -566,23 +684,33 @@ li span {
   header.sidebar-show .boards-dropdown-container {
     margin-left: 0;
   }
+  header.sidebar-show .toggle-sidebar-container {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transition: 0.1s;
+  }
+  header.sidebar-show .toggle-sidebar-container .toggle-sidebar span:nth-of-type(2) {
+    display: none;
+  }
   .empty-board.sidebar-show {
     margin-left: 130px;
   }
   .toggle-sidebar-container {
     margin-bottom: 110px;
     padding: 15px;
+    cursor: pointer;
   }
   .toggle-sidebar-container .toggle-sidebar {
     padding: 0 15px;
   }
-  .toggle-sidebar-container .toggle-sidebar img {
+  .toggle-sidebar-container .toggle-sidebar svg {
     position: relative;
     top: 2px;
   }
   .toggle-sidebar-container .toggle-sidebar span {
     margin-left: 7px;
     color: #828fa3;
+    transition: 0.1s;
   }
   .toggle-sidebar-container .toggle-sidebar span:nth-of-type(2) {
     width: 56px;
@@ -629,6 +757,9 @@ li span {
   .button-empty {
     font-size: 15px;
   }
+  .board-container {
+    padding-top: 105px;
+  }
   .light .logo {
     border-right: 1px solid #e4ebfa;
   }
@@ -640,5 +771,126 @@ li span {
   }
   .light .boards-dropdown-container {
     border-right: 1px solid #e4ebfa;
+  }
+  .light header {
+    border-bottom: 1px solid #e4ebfa;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  h2 {
+    font-size: 24px;
+    margin-left: 30px;
+  }
+  header {
+    padding: 0 34px;
+    height: 97px;
+  }
+  .logo {
+    width: 180px;
+  }
+  header.sidebar-show .logo {
+    width: 266px;
+  }
+  .boards-dropdown-container {
+    width: 300px;
+    margin-left: -301px;
+  }
+  .boards-dropdown h5,
+  .boards-dropdown li {
+    padding-left: 32px;
+  }
+  .boards-dropdown li:hover {
+    background-color: #fff;
+    color: #635fc7;
+  }
+  .boards-dropdown li:hover path {
+    fill: #635fc7;
+  }
+  .theme-switcher-container {
+    padding: 15px 24px;
+  }
+  main.sidebar-show {
+    padding-left: 310px;
+  }
+  .empty-board.sidebar-show {
+    margin-left: 150px;
+  }
+  .board-container {
+    padding: 24px;
+    padding-top: 120px;
+  }
+  .empty-board p {
+    width: 500px;
+  }
+  .button-primary:hover {
+    background-color: #a8a4ff;
+  }
+  .toggle-sidebar span:nth-of-type(2):hover {
+    background-color: #a8a4ff;
+  }
+  .switch:hover {
+    background-color: #a8a4ff;
+  }
+  .toggle-sidebar-container {
+    width: 245px;
+  }
+  .toggle-sidebar-container:hover {
+    background-color: #fff;
+  }
+  .toggle-sidebar-container:hover .toggle-sidebar span {
+    color: #635fc7;
+  }
+  .toggle-sidebar-container:hover .toggle-sidebar path {
+    fill: #635fc7;
+  }
+  .task:hover h4 {
+    color: #635fc7;
+  }
+  .add-new-column:hover p {
+    color: #635fc7;
+    cursor: pointer;
+  }
+  .actions-dropdown li:hover {
+    color: #fff;
+  }
+  .actions-dropdown li:nth-of-type(2):hover {
+    color: #ff9898;
+  }
+  .subtask:hover {
+    background-color: rgba(99, 95, 199, 0.25);
+  }
+  input:hover,
+  textarea:hover {
+    border-color: #635fc7;
+  }
+  .status-dropdown li:hover {
+    color: #fff;
+  }
+  .add-subtasks span:hover g,
+  .edit-subtasks span:hover g,
+  .add-board-columns span:hover g,
+  .edit-board-columns span:hover g {
+    fill: #ea5555;
+  }
+  .button-delete:hover {
+    background-color: #ff9898;
+  }
+  .light .boards-dropdown li:hover {
+    background-color: rgba(99, 95, 199, 0.1);
+  }
+  .light .toggle-sidebar-container:hover {
+    background-color: rgba(99, 95, 199, 0.1);
+  }
+  .light li:hover {
+    color: #fff;
+  }
+  .light .actions-dropdown li:nth-of-type(1):hover {
+    color: rgba(130, 143, 163, 0.5);
+  }
+  .light .status-dropdown li:hover {
+    color: rgba(130, 143, 163, 0.5);
+  }
+  .light .button-secondary:hover {
+    background-color: rgba(99, 95, 199, 0.26);
   }
 }

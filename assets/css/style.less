@@ -1,11 +1,13 @@
 @VeryDarkGrey: #20212C;
 @DarkGrey: #2B2C37;
-@MainPurple: #635FC7;
+@MainPurple: #635fc7;
 @MediumGrey: #828FA3;
 @Red: #EA5555;
 @LightGrey: #F4F7FD;
 @LinesDark: #3E3F4E;
 @LinesLight: #E4EBFA;
+@MainPurpleHover: #A8A4FF;
+@RedHover: #FF9898;
 
 
 
@@ -48,7 +50,9 @@ h4 {
     font-weight: 700;
     line-height: 19px;
     color: #fff;
+    cursor: pointer;
     margin-bottom: 8px;
+    transition: 0.1s;
 }
 
 h5 {
@@ -73,6 +77,8 @@ textarea {
     line-height: 23px;
     padding: 8px 16px 9px;
     width: 100%;
+    outline: inherit;
+    transition: 0.1s;
 }
 
 textarea {
@@ -102,6 +108,7 @@ button {
     border: 0;
     border-radius: 20px;
     cursor: pointer;
+    transition: 0.1s;
 }
 
 body {
@@ -122,6 +129,7 @@ header {
     position: fixed;
     left: 0;
     right: 0;
+    z-index: 1;
 }
 
 main {
@@ -162,6 +170,7 @@ main {
 
 button.inactive {
     opacity: 0.25;
+    pointer-events: none;
 }
 
 .button-primary {
@@ -183,10 +192,12 @@ button.inactive {
     background-color: @Red;
     margin-bottom: 16px;
     margin-top: 24px;
+    transition: 0.1s;
 }
 
 .show-boards {
     margin-bottom: 4px;
+    cursor: pointer;
 }
 
 .actions {
@@ -220,9 +231,13 @@ button.inactive {
 }
 
 .board-container {
-    padding-top: 100px;
-    padding-left: 16px;
+    padding: 16px;
+    padding-top: 85px;
     display: flex;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 .status-color {
@@ -245,6 +260,7 @@ button.inactive {
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
     box-sizing: border-box;
+    cursor: pointer;
 
 }
 
@@ -253,6 +269,31 @@ button.inactive {
     font-weight: 700;
     font-size: 12px;
     line-height: 15.12px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.add-new-column {
+
+    background-color: rgba(255, 255, 255, 0.01);
+    border-radius: 6px;
+    margin-top: 39px;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+
+    p {
+        font-size: 24px;
+        font-weight: bold;
+        color: @MediumGrey;
+        width: 280px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        transition: 0.1s;
+    }
+
 }
 
 .task-info-container,
@@ -268,10 +309,11 @@ button.inactive {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.45);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .boards-dropdown-container {
@@ -285,8 +327,8 @@ button.inactive {
 .add-new-board-container,
 .edit-board-container,
 .delete-board-container,
-//.delete-task-container,
-.board-container,
+.delete-task-container,
+//.board-container,
 .boards-dropdown-container,
     {
     display: none;
@@ -306,7 +348,6 @@ button.inactive {
 
 }
 
-
 .heading {
     position: relative;
     display: flex;
@@ -320,6 +361,11 @@ button.inactive {
         img {
             height: 20px;
         }
+    }
+
+    .actions-dropdown {
+        top: 60px;
+        right: -100px;
     }
 }
 
@@ -362,6 +408,7 @@ button.inactive {
     margin-top: 8px;
     padding: 13px 8px 16px 44px;
     position: relative;
+    cursor: pointer;
 
     span {
         background-color: #fff;
@@ -388,6 +435,7 @@ button.inactive {
         font-size: 12px;
         font-weight: 700;
         line-height: 15.12px;
+        cursor: pointer;
     }
 }
 
@@ -405,6 +453,7 @@ button.inactive {
 .status,
 .add-status,
 .edit-status {
+    position: relative;
     margin-top: 24px;
 
 }
@@ -417,11 +466,40 @@ button.inactive {
         position: absolute;
         top: 18px;
         right: 15px;
+        pointer-events: none;
+
     }
+
+    input {
+        cursor: pointer;
+
+    }
+
 }
 
 .status-dropdown {
+    position: absolute;
+    background-color: @VeryDarkGrey;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 16px;
+    padding-bottom: 0;
+    box-sizing: border-box;
     display: none;
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        color: @MediumGrey;
+        font-size: 13px;
+        margin-bottom: 16px;
+        cursor: pointer;
+        transition: 0.1s;
+    }
+
 }
 
 .add-title,
@@ -451,9 +529,13 @@ button.inactive {
     span {
         padding-left: 18px;
         padding-top: 12px;
+        cursor: pointer;
+
+        g {
+            transition: 0.1s;
+        }
     }
 
-    button {}
 }
 
 .boards-dropdown {
@@ -467,34 +549,41 @@ button.inactive {
         padding-left: 24px;
         padding-top: 16px;
     }
-}
 
-ul {
-    margin-top: 19px;
-    list-style: none;
-    padding-right: 24px;
-}
+    ul {
+        margin-top: 19px;
+        list-style: none;
+        padding-right: 24px;
+    }
 
-li {
-    color: @MediumGrey;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 18.9px;
-    padding: 14px 24px;
+    li {
+        color: @MediumGrey;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 18.9px;
+        padding: 14px 24px;
+        cursor: pointer;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        transition: 0.1s;
 
-    span {
-        margin-right: 12px;
-        vertical-align: middle;
+        span {
+            margin-right: 12px;
+            vertical-align: middle;
 
 
+        }
     }
 }
 
-.active {
+path {
+    transition: 0.1s;
+}
+
+li.active {
     background-color: @MainPurple;
     color: #fff;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;
+
 
     path {
         fill: #fff;
@@ -502,7 +591,7 @@ li {
 
 }
 
-.create-new-board {
+li.create-new-board {
     color: @MainPurple;
 
     path {
@@ -529,6 +618,8 @@ li {
     height: 20px;
     display: block;
     margin: 0 20px;
+    cursor: pointer;
+    transition: 0.1s;
 
     span {
         display: block;
@@ -539,8 +630,39 @@ li {
         position: relative;
         top: 3px;
         left: 23px;
+        transition: 0.1s;
     }
 }
+
+.actions-dropdown {
+    position: absolute;
+    width: 192px;
+    background-color: @VeryDarkGrey;
+    border-radius: 8px;
+    right: 25px;
+    top: 75px;
+    display: none;
+
+    ul {
+        list-style: none;
+        padding: 16px;
+    }
+
+    li {
+        font-size: 13px;
+        font-weight: 500;
+        color: @MediumGrey;
+        cursor: pointer;
+        transition: 0.1s;
+    }
+
+    li:nth-of-type(2) {
+        color: @Red;
+        margin-top: 30px
+    }
+}
+
+
 
 .light {
     background-color: @LightGrey;
@@ -608,6 +730,23 @@ li {
         color: rgba(0, 0, 0, 0.25);
     }
 
+    .add-new-column {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .actions-dropdown {
+        background-color: #fff;
+    }
+
+    .status-dropdown {
+        background-color: #fff;
+    }
+    
+    .switch{
+        span{
+            left: 3px;
+        }
+    }
 
 }
 
@@ -627,6 +766,7 @@ li {
     header {
         height: 80px;
         padding: 0 24px;
+        border-bottom: 1px solid @LinesDark;
     }
 
     .logo-mobile {
@@ -655,6 +795,7 @@ li {
 
     .actions {
         margin-left: 24px;
+        cursor: pointer;
 
         img {
             height: 20px;
@@ -713,7 +854,17 @@ li {
             margin-left: 0;
         }
 
+        .toggle-sidebar-container {
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            transition: 0.1s;
 
+            .toggle-sidebar {
+                span:nth-of-type(2) {
+                    display: none;
+                }
+            }
+        }
 
 
     }
@@ -725,18 +876,21 @@ li {
     .toggle-sidebar-container {
         margin-bottom: 110px;
         padding: 15px;
+        cursor: pointer;
 
         .toggle-sidebar {
             padding: 0 15px;
 
-            img {
+            svg {
                 position: relative;
                 top: 2px;
+
             }
 
             span {
                 margin-left: 7px;
                 color: @MediumGrey;
+                transition: 0.1s;
             }
 
             span:nth-of-type(2) {
@@ -751,7 +905,10 @@ li {
                 justify-content: center;
                 align-items: center;
                 bottom: 30px;
-                img{
+
+
+
+                img {
                     top: 0;
                     left: -2px;
                 }
@@ -796,10 +953,14 @@ li {
         font-size: 15px;
     }
 
+    .board-container {
+        padding-top: 105px;
+    }
+
     .light {
-        
-        .logo{
-            border-right: 1px solid @LinesLight; 
+
+        .logo {
+            border-right: 1px solid @LinesLight;
         }
 
         .logo-light {
@@ -813,11 +974,200 @@ li {
         .boards-dropdown-container {
             border-right: 1px solid @LinesLight;
         }
+
+        header {
+            border-bottom: 1px solid @LinesLight;
+        }
     }
 
 
 }
 
 @media only screen and (min-width: 1440px) {
-    
+
+    h2 {
+        font-size: 24px;
+        margin-left: 30px;
+    }
+
+    header {
+        padding: 0 34px;
+        height: 97px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    header.sidebar-show {
+        .logo {
+            width: 266px;
+        }
+
+    }
+
+    .boards-dropdown-container {
+        width: 300px;
+        margin-left: -301px;
+    }
+
+    .boards-dropdown {
+
+        h5,
+        li {
+            padding-left: 32px;
+        }
+
+        li:hover {
+            background-color: #fff;
+            color: @MainPurple;
+
+            path {
+                fill: @MainPurple;
+            }
+        }
+    }
+
+    .theme-switcher-container {
+        padding: 15px 24px;
+    }
+
+    main.sidebar-show {
+        padding-left: 310px;
+    }
+
+    .empty-board.sidebar-show {
+        margin-left: 150px;
+    }
+
+    .board-container {
+        padding: 24px;
+        padding-top: 120px;
+    }
+
+    .empty-board {
+        p {
+            width: 500px;
+        }
+    }
+
+    .button-primary:hover {
+        background-color: @MainPurpleHover;
+    }
+
+    .toggle-sidebar {
+        span:nth-of-type(2):hover {
+            background-color: @MainPurpleHover;
+        }
+    }
+
+    .switch:hover {
+        background-color: @MainPurpleHover;
+    }
+
+    .toggle-sidebar-container {
+        width: 245px;
+    }
+
+    .toggle-sidebar-container:hover {
+
+        background-color: #fff;
+
+        .toggle-sidebar {
+            span {
+                color: @MainPurple;
+            }
+
+            path {
+                fill: @MainPurple;
+            }
+        }
+    }
+
+    .task:hover {
+        h4 {
+            color: @MainPurple;
+        }
+    }
+
+    .add-new-column:hover {
+        p {
+            color: @MainPurple;
+            cursor: pointer;
+        }
+    }
+
+    .actions-dropdown {
+        li:hover {
+            color: #fff;
+        }
+
+        li:nth-of-type(2):hover {
+            color: @RedHover;
+        }
+    }
+
+    .subtask:hover {
+        background-color: rgba(99, 95, 199, 0.25);
+    }
+
+    input:hover,
+    textarea:hover {
+        border-color: @MainPurple;
+    }
+
+    .status-dropdown {
+        li:hover {
+            color: #fff;
+        }
+    }
+
+    .add-subtasks,
+    .edit-subtasks,
+    .add-board-columns,
+    .edit-board-columns {
+        span:hover {
+            g {
+                fill: @Red;
+            }
+        }
+    }
+
+    .button-delete:hover {
+        background-color: @RedHover;
+    }
+
+    .light {
+        .boards-dropdown {
+            li:hover {
+                background-color: rgba(99, 95, 199, 0.1);
+            }
+        }
+
+        .toggle-sidebar-container:hover {
+            background-color: rgba(99, 95, 199, 0.1);
+        }
+
+        li:hover {
+            color: #fff;
+        }
+
+        .actions-dropdown {
+            li:nth-of-type(1):hover {
+                color: rgba(130, 143, 163, 0.5);
+            }
+        }
+
+        .status-dropdown {
+            li:hover {
+                color: rgba(130, 143, 163, 0.5);
+            }
+        }
+
+        .button-secondary:hover {
+            background-color: rgba(99, 95, 199, 0.26);
+        }
+
+    }
+
 }
